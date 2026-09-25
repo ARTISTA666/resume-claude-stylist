@@ -1,0 +1,119 @@
+{
+  "name": "司雨松",
+  "target_role": "软件开发工程师（Java 后端）",
+  "demographics": [
+    { "label": "出生年月", "value": "2001.10" },
+    { "label": "籍贯", "value": "安徽芜湖" },
+    { "label": "政治面貌", "value": "共青团员" },
+    { "label": "民族", "value": "汉族" }
+  ],
+  "contacts": [
+    { "label": "联系电话", "value": "19356007235" },
+    { "label": "电子邮箱", "value": "chonghui2001@gmail.com" },
+    { "label": "现居城市", "value": "芜湖市" }
+  ],
+  "education": [
+    {
+      "school": "安徽师范大学",
+      "major": "电子信息（硕士研究生）",
+      "period": "2023.09 - 2026.12（预计毕业）"
+    },
+    {
+      "school": "安徽师范大学",
+      "major": "电子信息工程（工学学士）",
+      "period": "2019.09 - 2023.07"
+    }
+  ],
+  "evaluation": [
+    {
+      "title": "工程实践与业务闭环",
+      "detail": "统招硕士（2026 年底毕业），2 年一线全栈工程实践，深度参与并交付医疗 AI 与工业视觉业务系统，具备“需求调研→系统架构→服务研发→Linux 部署运维”全流程工程落地闭环能力。"
+    },
+    {
+      "title": "核心技术与架构集成",
+      "detail": "以 Java（Spring Boot / Spring MVC / MyBatis）为主栈，精通 MySQL 调优、Redis 缓存与 RabbitMQ 异步解耦，具备 Python/FastAPI 微服务及边缘 AI 推理接口集成实战经验。"
+    },
+    {
+      "title": "作风稳健与组织纪律",
+      "detail": "共青团员，政治素养良好，作风踏实严谨、执行力强，具备良好团队协作与跨职能沟通意识，服从组织安排与业务一线调配。"
+    }
+  ],
+  "skills": [
+    {
+      "category": "Java 后端",
+      "description": "精通 Java 核心、多线程并发（JUC）与 JVM 基础；熟练掌握 Spring Boot、Spring MVC、MyBatis、JWT 权限认证框架。"
+    },
+    {
+      "category": "存储与中间件",
+      "description": "精通 MySQL 表结构设计、事务隔离与索引调优；熟练掌握 Redis 缓存设计与防穿透策略；熟练应用 RabbitMQ 消息解耦、重试机制与死信队列。"
+    },
+    {
+      "category": "AI 应用工程",
+      "description": "熟练运用 Python、FastAPI、Django；熟悉 YOLO 工业视觉推理接口对接与视频流抽帧优化；掌握 LlamaIndex + Qdrant 构建混合检索 RAG 知识库；熟悉硬件 SDK 集成。"
+    },
+    {
+      "category": "运维与全栈",
+      "description": "熟练编写 Linux Shell 自动化监控脚本与服务故障自愈；掌握 Docker 与 CI/CD 基础；熟练掌握 Vue3、UniApp、JavaScript、HTML/CSS 跨端前端开发。"
+    }
+  ],
+  "internships": [
+    {
+      "company": "合肥奥比斯科技有限公司",
+      "role": "全栈开发工程师（实习）",
+      "period": "2024.07 - 2026.07",
+      "bullets": [
+        "主导医疗 AI 诊断（ROP、眼底出血）与工业智能扭矩监测系统核心后端研发，负责部分前端 Web 及跨端小程序开发。",
+        "封装身份证读卡器、扫码枪、小票机及工业摄像头 SDK，搭建异步化业务流水线，实现现场设备高效交互与全自动建档。",
+        "主导业务需求拆解、RESTful API 规范制定与 MySQL 数据库建模，负责生产环境 Linux 部署运维与监控排障，保障系统稳定运行。"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "title": "智问 —— 本地化智能知识库问答平台（RAG）",
+      "period": "2024.09 - 2026.06",
+      "tech_stack": "Python、FastAPI、LlamaIndex、Qdrant、Ollama (bge-m3 / qwen2.5vl)、Vue3",
+      "bullets": [
+        "面向高保密私有知识库问答场景，主导文档解析、自适应文本分块、向量化索引与上下文召回的全链路服务研发。",
+        "基于 bge-m3 本地 Embedding 与 Qdrant 向量库，构建【向量语义与 BM25 关键词混合检索】，引入【RRF 倒数排名融合重排算法】，大幅提升检索召回精准度。",
+        "基于 LlamaIndex 构建流式问答流水线，实现模型回答精准溯源与引用标注；支持【纯内网本地化私有部署】，无外部 API 依赖，满足严苛数据安全合规要求。"
+      ]
+    },
+    {
+      "title": "ROP 新生儿视网膜病变在线审核平台（全栈交付）",
+      "period": "2024.09 - 2024.12",
+      "tech_stack": "Spring Boot、MyBatis、MySQL、Redis、RabbitMQ、JWT、Vue、UniApp",
+      "bullets": [
+        "面向新生儿 ROP 医疗多级审核业务，主导 Web 管理端、小程序端与后端服务研发，对接 AI 推理接口实现病灶智能辅助筛查。",
+        "针对多医生并发审核抢单冲突设计【乐观锁版本号控制机制】；基于【自定义线程池】异步调度 AI 耗时推理任务，引入【Redis + 布隆过滤器】拦截无效穿透请求。",
+        "引入【RabbitMQ 异步解耦】并配置重试与死信队列机制，优雅兜底 AI 服务超时及异常中断；建立【WebSocket 全双工长连接】实时推送诊断进度。"
+      ],
+      "result": "成功根绝多医生并发抢单冲突，显著削减 AI 诊断前台等待延迟，诊断审核周转效率大幅提升。"
+    },
+    {
+      "title": "眼底出血智能筛查检测平台（全栈开发 · 杭州社区卫生中心落地）",
+      "period": "2024.10 - 2025.01",
+      "tech_stack": "Spring Boot、MyBatis、MySQL、RabbitMQ、Vue、UniApp",
+      "bullets": [
+        "负责系统后端架构设计，覆盖基层居民建档、眼底筛查、专家审核全模块；封装二代身份证读卡器、扫码枪与热敏打印机 SDK，实现居民体征信息秒级建档。",
+        "针对海量筛查数据导出场景，设计基于【RabbitMQ 的异步任务拆分】与【流式分片批处理（Pagination Chunking）】，严格控制内存峰值并平抑数据库连接池压力。"
+      ],
+      "result": "系统在【杭州市多个基层社区卫生中心常态化落地使用】，建档速度与批量报表流转效率获一线医护人员高度认可。"
+    },
+    {
+      "title": "智能扭矩监测预警平台（全栈开发 · 工业视觉检测）",
+      "period": "2025.02 - 2026.07",
+      "tech_stack": "Django、SQLite、YOLO、Linux、Shell、Python",
+      "bullets": [
+        "面向工业装配流水线螺栓扭矩防错与工装规范场景，研发业务服务，接入并联调 YOLO 边缘视觉推理接口，设计【自适应视频流抽帧算法】显著降低算力资源占用。",
+        "编写 Linux Shell 守护进程脚本与健康心跳探针，实现边缘计算设备掉线告警与故障进程秒级自愈。"
+      ],
+      "result": "依托算法模型实现装配违规动作毫秒级闭环报警，有效杜绝装配工序漏检、误检事故，保障产线装配质量。"
+    }
+  ],
+  "certifications": [
+    "大学英语四级（CET-4）通过",
+    "大学英语六级（CET-6）通过"
+  ],
+  "extra_cert_note": "具备良好的英文专业文献检索与技术文档阅读能力"
+}

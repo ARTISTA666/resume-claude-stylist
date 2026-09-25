@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ name }} - {{ target_role }}（简历）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+SC:wght@600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,600;0,8..60,700;1,8..60,600&display=swap" rel="stylesheet">
+<style>
+  @page {
+    size: A4 portrait;
+    margin: 0;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  body {
+    background-color: #FAF9F5;
+    color: #2D2A26;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+    font-size: 8.6pt;
+    line-height: 1.36;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  .resume-page {
+    width: 210mm;
+    height: 297mm;
+    margin: 0 auto;
+    background: #FFFFFF;
+    padding: 11.5mm 15mm 10mm 15mm;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .serif-title {
+    font-family: "Source Serif 4", "Noto Serif SC", "Songti SC", "Source Han Serif SC", STSong, "Hiragino Mincho ProN", Georgia, serif;
+  }
+
+  /* Header */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-bottom: 7px;
+    border-bottom: 1.5px solid #EAE5DC;
+    margin-bottom: 5.5px;
+  }
+
+  .header-left {
+    flex: 1;
+    padding-right: 16px;
+  }
+
+  .name-row {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 5px;
+  }
+
+  .name {
+    font-size: 22.5pt;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: #1A1816;
+    line-height: 1;
+  }
+
+  .target-badge {
+    font-size: 9.8pt;
+    font-weight: 600;
+    color: #A8381D;
+    background: #FAF3EE;
+    border: 1px solid #EED7CC;
+    padding: 2px 8.5px;
+    border-radius: 4px;
+    letter-spacing: 0.02em;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 4px 11px;
+    color: #55504A;
+    font-size: 8.85pt;
+    margin-top: 4px;
+    line-height: 1.32;
+  }
+
+  .meta-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 2.5px;
+  }
+
+  .meta-item strong {
+    font-weight: 600;
+    color: #2D2A26;
+  }
+
+  .sep {
+    color: #D6D0C5;
+    font-size: 7.5pt;
+  }
+
+  .header-right {
+    flex-shrink: 0;
+  }
+
+  .photo-frame {
+    width: 66px;
+    height: 88px;
+    border-radius: 3px;
+    border: 1px solid #DFD8CB;
+    padding: 2px;
+    background: #FFFFFF;
+    box-shadow: 0 1.5px 4px rgba(0, 0, 0, 0.05);
+  }
+
+  .photo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 2px;
+    display: block;
+  }
+
+  /* Section Common */
+  .section {
+    margin-bottom: 5px;
+  }
+
+  .section:last-child {
+    margin-bottom: 0;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 3.5px;
+  }
+
+  .section-mark {
+    width: 3.2px;
+    height: 12.5px;
+    background-color: #B24C2C;
+    border-radius: 2px;
+    margin-right: 6.5px;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-size: 10.5pt;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: #1F1D1A;
+    display: inline-flex;
+    align-items: baseline;
+  }
+
+  .section-sub {
+    font-family: "Inter", -apple-system, sans-serif;
+    font-size: 6.8pt;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #9E9689;
+    margin-left: 6.5px;
+  }
+
+  .section-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, #E6E1D6 0%, rgba(230, 225, 214, 0.1) 100%);
+    margin-left: 8.5px;
+  }
+
+  /* Education */
+  .edu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 8.8pt;
+    line-height: 1.38;
+  }
+
+  .edu-school {
+    font-weight: 600;
+    color: #1F1D1A;
+  }
+
+  .edu-major {
+    color: #4A453F;
+  }
+
+  .edu-date {
+    color: #7A746B;
+    font-variant-numeric: tabular-nums;
+    font-size: 8.5pt;
+  }
+
+  /* Evaluation Box */
+  .eval-box {
+    background: #FAF8F5;
+    border-left: 2.8px solid #D6CEBF;
+    padding: 3.5px 8.5px;
+    border-radius: 0 4px 4px 0;
+    font-size: 8.4pt;
+    color: #38342F;
+    line-height: 1.38;
+  }
+
+  .eval-box p {
+    margin-bottom: 1.5px;
+    text-align: justify;
+  }
+
+  .eval-box p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Skills Grid */
+  .skill-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2.2px;
+    font-size: 8.45pt;
+    line-height: 1.35;
+  }
+
+  .skill-row {
+    display: flex;
+    align-items: baseline;
+  }
+
+  .skill-label {
+    font-weight: 600;
+    color: #A33B1F;
+    min-width: 80px;
+    flex-shrink: 0;
+    font-size: 8.45pt;
+  }
+
+  .skill-desc {
+    color: #38342F;
+    text-align: justify;
+  }
+
+  /* Experience & Projects */
+  .item-block {
+    margin-bottom: 4px;
+  }
+  .item-block:last-child {
+    margin-bottom: 0;
+  }
+
+  .item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 1.5px;
+  }
+
+  .item-title-wrap {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+  }
+
+  .item-title {
+    font-weight: 600;
+    color: #1F1D1A;
+    font-size: 8.95pt;
+  }
+
+  .item-role {
+    font-size: 8.5pt;
+    color: #55504A;
+    font-weight: 500;
+  }
+
+  .item-date {
+    font-size: 8.35pt;
+    color: #7A746B;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Pills */
+  .tech-pills {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2.5px;
+    margin-bottom: 1.5px;
+  }
+
+  .tech-label {
+    font-size: 7.8pt;
+    color: #7A746B;
+    font-weight: 500;
+    margin-right: 1px;
+  }
+
+  .tech-pill {
+    display: inline-block;
+    font-size: 7.25pt;
+    color: #55504A;
+    background: #F4F1EA;
+    border: 1px solid #E5E0D6;
+    border-radius: 2.5px;
+    padding: 0px 4px;
+    line-height: 1.3;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+
+  /* Bullets */
+  .bullet-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+  }
+
+  .bullet-list li {
+    position: relative;
+    padding-left: 9.5px;
+    font-size: 8.35pt;
+    color: #38342F;
+    line-height: 1.34;
+    margin-bottom: 1.1px;
+    text-align: justify;
+  }
+
+  .bullet-list li::before {
+    content: "▪";
+    position: absolute;
+    left: 1px;
+    top: 0px;
+    color: #B24C2C;
+    font-size: 6.8pt;
+  }
+
+  .bullet-list li.result-li {
+    color: #201E1B;
+  }
+  .bullet-list li.result-li::before {
+    content: "•";
+    font-weight: 700;
+    font-size: 8pt;
+    color: #A33B1F;
+    left: 0.5px;
+  }
+
+  .result-title {
+    color: #A33B1F;
+    font-weight: 600;
+  }
+
+  /* Certifications */
+  .cert-row {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 8.5pt;
+    color: #38342F;
+    line-height: 1.35;
+  }
+
+  .cert-badge {
+    display: inline-flex;
+    align-items: center;
+    background: #FAF8F5;
+    border: 1px solid #EAE4D8;
+    border-radius: 3px;
+    padding: 1.2px 8px;
+    font-size: 8.3pt;
+    color: #2F2B26;
+    font-weight: 500;
+  }
+</style>
+</head>
+<body>
+
+<div class="resume-page">
+  <!-- Header -->
+  <header class="header">
+    <div class="header-left">
+      <div class="name-row">
+        <h1 class="name serif-title">{{ name }}</h1>
+        <span class="target-badge">求职意向：{{ target_role }}</span>
+      </div>
+
+      <div class="meta-row">
+        {% for item in demographics %}
+        <span class="meta-item"><strong>{{ item.label }}：</strong>{{ item.value }}</span>
+        {% if not loop.last %}<span class="sep">/</span>{% endif %}
+        {% endfor %}
+      </div>
+
+      <div class="meta-row" style="margin-top: 3.5px;">
+        {% for item in contacts %}
+        <span class="meta-item"><strong>{{ item.label }}：</strong>{{ item.value }}</span>
+        {% if not loop.last %}<span class="sep">/</span>{% endif %}
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="header-right">
+      <div class="photo-frame">
+        <img src="{{ avatar_data_uri }}" alt="{{ name }} 个人证件照">
+      </div>
+    </div>
+  </header>
+
+  <!-- 教育背景 -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-mark"></div>
+      <h2 class="section-title serif-title">教育背景 <span class="section-sub">Education</span></h2>
+      <div class="section-line"></div>
+    </div>
+    {% for edu in education %}
+    <div class="edu-item" style="{% if not loop.last %}margin-bottom: 1.5px;{% endif %}">
+      <div>
+        <span class="edu-school">{{ edu.school }}</span>
+        <span style="color:#C6BFB3; margin: 0 4px;">|</span>
+        <span class="edu-major">{{ edu.major }}</span>
+      </div>
+      <span class="edu-date">{{ edu.period }}</span>
+    </div>
+    {% endfor %}
+  </section>
+
+  <!-- 自我评价 -->
+  {% if evaluation %}
+  <section class="section">
+    <div class="section-header">
+      <div class="section-mark"></div>
+      <h2 class="section-title serif-title">自我评价 <span class="section-sub">About Me</span></h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="eval-box">
+      {% for item in evaluation %}
+      <p>• <strong>{{ item.title }}：</strong>{{ item.detail }}</p>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+  <!-- 专业技能 -->
+  {% if skills %}
+  <section class="section">
+    <div class="section-header">
+      <div class="section-mark"></div>
+      <h2 class="section-title serif-title">专业技能 <span class="section-sub">Skills</span></h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="skill-grid">
+      {% for item in skills %}
+      <div class="skill-row">
+        <span class="skill-label">{{ item.category }}：</span>
+        <span class="skill-desc">{{ item.description }}</span>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+  <!-- 实习经历 -->
+  {% if internships %}
+  <section class="section">
+    <div class="section-header">
+      <div class="section-mark"></div>
+      <h2 class="section-title serif-title">实习经历 <span class="section-sub">Experience</span></h2>
+      <div class="section-line"></div>
+    </div>
+    {% for exp in internships %}
+    <div class="item-block">
+      <div class="item-header">
+        <div class="item-title-wrap">
+          <span class="item-title">{{ exp.company }}</span>
+          <span style="color:#C6BFB3;">|</span>
+          <span class="item-role">{{ exp.role }}</span>
+        </div>
+        <span class="item-date">{{ exp.period }}</span>
+      </div>
+      <ul class="bullet-list">
+        {% for b in exp.bullets %}
+        <li>{{ b }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endfor %}
+  </section>
+  {% endif %}
+
+  <!-- 项目经历 -->
+  {% if projects %}
+  <section class="section">
+    <div class="section-header">
+      <div class="section-mark"></div>
+      <h2 class="section-title serif-title">项目经历 <span class="section-sub">Projects</span></h2>
+      <div class="section-line"></div>
+    </div>
+    {% for proj in projects %}
+    <div class="item-block">
+      <div class="item-header">
+        <div class="item-title-wrap">
+          <span class="item-title">{{ proj.title }}</span>
+        </div>
+        <span class="item-date">{{ proj.period }}</span>
+      </div>
+      {% if proj.tech_stack %}
+      <div class="tech-pills">
+        <span class="tech-label">技术栈：</span>
+        <span class="tech-pill">{{ proj.tech_stack }}</span>
+      </div>
+      {% endif %}
+      <ul class="bullet-list">
+        {% for b in proj.bullets %}
+        <li>{{ b | safe }}</li>
+        {% endfor %}
+        {% if proj.result %}
+        <li class="result-li"><span class="result-title">项目成效：</span>{{ proj.result | safe }}</li>
+        {% endif %}
+      </ul>
+    </div>
+    {% endfor %}
+  </section>
+  {% endif %}
+
+  <!-- 技能证书 -->
+  {% if certifications %}
+  <section class="section">
+    <div class="section-header">
+      <div class="section-mark"></div>
+      <h2 class="section-title serif-title">技能证书 <span class="section-sub">Certifications</span></h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="cert-row">
+      {% for cert in certifications %}
+      <span class="cert-badge">{{ cert }}</span>
+      {% endfor %}
+      {% if extra_cert_note %}
+      <span style="font-size: 8.3pt; color: #6E685E; margin-left: 6px;">{{ extra_cert_note }}</span>
+      {% endif %}
+    </div>
+  </section>
+  {% endif %}
+</div>
+
+</body>
+</html>

@@ -1,0 +1,100 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ResumeData",
+  "type": "object",
+  "required": ["name", "target_role", "demographics", "contacts", "education"],
+  "properties": {
+    "name": { "type": "string" },
+    "target_role": { "type": "string" },
+    "demographics": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["label", "value"],
+        "properties": {
+          "label": { "type": "string" },
+          "value": { "type": "string" }
+        }
+      }
+    },
+    "contacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["label", "value"],
+        "properties": {
+          "label": { "type": "string" },
+          "value": { "type": "string" }
+        }
+      }
+    },
+    "education": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["school", "major", "period"],
+        "properties": {
+          "school": { "type": "string" },
+          "major": { "type": "string" },
+          "period": { "type": "string" }
+        }
+      }
+    },
+    "evaluation": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["title", "detail"],
+        "properties": {
+          "title": { "type": "string" },
+          "detail": { "type": "string" }
+        }
+      }
+    },
+    "skills": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["category", "description"],
+        "properties": {
+          "category": { "type": "string" },
+          "description": { "type": "string" }
+        }
+      }
+    },
+    "internships": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["company", "role", "period", "bullets"],
+        "properties": {
+          "company": { "type": "string" },
+          "role": { "type": "string" },
+          "period": { "type": "string" },
+          "bullets": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+    "projects": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["title", "period", "bullets"],
+        "properties": {
+          "title": { "type": "string" },
+          "period": { "type": "string" },
+          "tech_stack": { "type": "string" },
+          "bullets": { "type": "array", "items": { "type": "string" } },
+          "result": { "type": "string" }
+        }
+      }
+    },
+    "certifications": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "extra_cert_note": {
+      "type": "string"
+    }
+  }
+}
